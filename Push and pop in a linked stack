@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node *next;
+}*save,*ptr,*top;
+int main()
+{
+    top=NULL;
+    int element;
+    char ans='y';
+    while(ans=='y')
+    {
+        cout<<"Enter the element";
+        cin>>element;
+        ptr=new node;
+        ptr->data=element;
+        ptr->next=NULL;
+        if(top==NULL)
+        {
+            top=ptr;
+        }
+        else
+        {
+            save=top;
+            top=ptr;
+            ptr->next=save;
+        }
+        cout<<"Want to enter more";
+        cin>>ans;
+    }
+    cout<<"Want to delete";
+    cin>>ans;
+    while(ans=='y')
+    {
+        if(top==NULL)
+        {
+            cout<<"Underflow";
+            break;
+        }
+        else
+        {
+            ptr=top;
+            top=top->next;
+            ptr->next=NULL;
+            delete ptr;
+        }
+        cout<<"Want to delete more";
+        cin>>ans;
+    }
+    cout<<"Stack : ";
+    for(ptr=top;ptr!=NULL;ptr=ptr->next)
+    {
+        cout<<ptr->data<<" ";
+    }
+}
