@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    const int size=10;
+    int stack[size],top=-1,element;
+    char ans='y';
+    while(ans=='y')
+    {
+        cout<<"Enter the element";
+        cin>>element;
+        if(top==size-1)
+        {
+            cout<<"Overflow";
+        }
+        else
+        {
+            top++;
+            stack[top]=element;
+        }
+        cout<<"Want to enter more";
+        cin>>ans;
+    }
+    cout<<"Want to delete ";
+    cin>>ans;
+    while(ans=='y')
+    {
+        if(top==-1)
+        {
+            cout<<"Underflow";
+            break;
+        }
+        else
+        {
+            int ret=stack[top];
+            top--;
+        cout<<"The deleted element is"<<ret<<endl;
+        }
+        cout<<"Want to delete more";
+        cin>>ans;
+    }
+    cout<<"Stack: "
+    for(int i=top;i>=0;i--)
+    {
+        cout<<stack[i]<<" ";
+    }
+}
